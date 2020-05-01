@@ -1,0 +1,10 @@
+.keyletter{
+    font-size: 0.75em;
+    width: 2.2em;
+    height: 2em; 
+    text-align: center;
+    margin: 1px;
+    background-color:#32a03b;
+    color: #C6E3E3;
+    border-radius:10px;
+}

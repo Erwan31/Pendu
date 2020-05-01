@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import './letter.css';
 
-const Letter = ({letter, index, feedback}) => (<div className={`letter ${letter}`}>{feedback === 'discovered' ? letter : '_'}</div>)
+const Letter = ({letter, index, feedback}) => (<div className={"key"}>{feedback === 'discovered' ? letter : '_'}</div>)
 
 
 Letter.propTypes = {

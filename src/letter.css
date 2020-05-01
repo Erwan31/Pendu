@@ -1,0 +1,10 @@
+.key{
+    font-size: 1.1em;
+    width: 2.2em;
+    height: 2em; 
+    text-align: center;
+    margin: 2px;
+    background-color:#387272;
+    color: #C6E3E3;
+    border-radius:10px;
+}
