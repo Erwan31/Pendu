@@ -1,0 +1,17 @@
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  margin: auto;
+  user-select: none;
+  justify-content: space-between;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  margin: auto;
+  user-select: none;
+  justify-content: space-between;
+}
