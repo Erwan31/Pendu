@@ -1,10 +1,10 @@
 .letters {
   display: flex;
   flex-wrap: wrap;
-  width: 200px;
+  width: 600px;
   margin: auto;
   user-select: none;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .keyboard {

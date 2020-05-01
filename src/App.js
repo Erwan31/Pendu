@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Letter from './letter'
 import Clavier from './clavier'
+import Restart from './restart'
 
 const DICO = [
   "KAYAK", 
@@ -19,7 +20,7 @@ const DICO = [
 
 const ALPHA = [
   "A", "B", "C", "D", "E", "F", "G", "H",
-  "I", "J", "", "K", "L", "M", "N", "O",
+  "I", "J", "K", "L", "M", "N", "O",
   "P", "Q", "R", "S", "T", "U", "V", "W",
   "X", "Y", "Z"
 ];
@@ -52,15 +53,26 @@ class App extends React.Component {
   }
 
   handleKeyClick = keyLetter => {
-    let {mot, discovered} = this.state;
 
-    console.log('Click on', keyLetter);
+    //console.log('Click on', keyLetter);
     this.getFeedBackLetter( keyLetter );
     
   }
 
+  handleRestartClick = () =>{
+
+    console.log('Restart Click');
+
+    let {mot, discovered} = this.state;
+    mot = this.getWord();
+    discovered = [];
+
+    this.setState({mot, discovered});
+  }
+
   render() {
     let {mot, discovered} = this.state;
+    let won = discovered.length === mot.length;
 
     return (
       <div className="pendu">
@@ -71,10 +83,11 @@ class App extends React.Component {
         </span>
         <span className = "keyboard">
           {ALPHA.map(( keyLetter ) =>
-            <Clavier onClick={this.handleKeyClick} keyLetter={keyLetter} index={ALPHA.indexOf(keyLetter)} />
+            <Clavier key={keyLetter} onClick={this.handleKeyClick} keyLetter={keyLetter} index={ALPHA.indexOf(keyLetter)} />
             )
           }
         </span>
+        {won && <button onClick={this.handleRestartClick}>Click to Restart</button>}
       </div>
     );
   }
