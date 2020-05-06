@@ -50,7 +50,7 @@ class App extends React.Component {
      
     this.setState({discovered});
 
-  }
+  } 
 
   handleKeyClick = keyLetter => {
 
@@ -76,18 +76,21 @@ class App extends React.Component {
 
     return (
       <div className="pendu">
-        <span className="letters">
-          {mot.map((letter, index, feedback)=>
-            <Letter letter={letter} key={index} index={index} feedback={discovered.includes(index) ? 'discovered' : 'hidden'} />)
-          }
-        </span>
-        <span className = "keyboard">
-          {ALPHA.map(( keyLetter ) =>
-            <Clavier key={keyLetter} onClick={this.handleKeyClick} keyLetter={keyLetter} index={ALPHA.indexOf(keyLetter)} />
-            )
-          }
-        </span>
-        {won && <button onClick={this.handleRestartClick}>Click to Restart</button>}
+        {won === true ? (<button className="restart" onClick={this.handleRestartClick}>Click to Restart</button>) :
+        (<span>
+          <span className="letters">
+            {mot.map((letter, index, feedback)=>
+              <Letter letter={letter} key={index} index={index} feedback={discovered.includes(index) ? 'discovered' : 'hidden'} />)
+            }
+          </span>
+          <span className = "keyboard">
+            {ALPHA.map(( keyLetter ) =>
+              <Clavier key={keyLetter} onClick={this.handleKeyClick} keyLetter={keyLetter} index={ALPHA.indexOf(keyLetter)} />
+              )
+            }
+          </span>
+        </span>)
+       }
       </div>
     );
   }
